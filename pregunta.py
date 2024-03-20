@@ -16,5 +16,13 @@ def clean_data():
     #
     # Inserte su código aquí
     #
+    # Eliminar filas duplicadas
+    df = df.drop_duplicates()
+
+    # Tratar los datos faltantes
+    # Por ejemplo, si quieres eliminar las filas con datos faltantes
+    df = df.dropna()
+    print(df)
 
     return df
+clean_data()
