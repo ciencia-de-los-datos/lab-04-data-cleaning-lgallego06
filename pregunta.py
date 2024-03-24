@@ -8,7 +8,7 @@ correctamente. Tenga en cuenta datos faltantes y duplicados.
 """
 
 import pandas as pd
-import nltk
+#import nltk
 
 
 def clean_data():
@@ -54,16 +54,17 @@ def clean_data():
         df[column] = df[column].str.replace("-", " ").str.replace("_", " ")
         df[column] = df[column].str.translate(str.maketrans("", "", "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~¿"))
         # Tokenize
-        df[column] = df[column].str.split()
+        #df[column] = df[column].str.split()
         # Stemming
-        stemmer = nltk.PorterStemmer()
-        df[column] = df[column].apply(lambda x: [stemmer.stem(word) for word in x])
+        #stemmer = nltk.PorterStemmer()
+        #df[column] = df[column].apply(lambda x: [stemmer.stem(word) for word in x])
         # Remove duplicates, sort, and join
-        df[column] = df[column].apply(lambda x: sorted(set(x))).str.join(' ')
+        #df[column] = df[column].apply(lambda x: sorted(set(x))).str.join(' ')
     df['barrio'] = df['barrio'].str.replace("beln", "belen")
     df['barrio'] = df['barrio'].str.replace("antonio nario", "antonio nariño")
     df = df.dropna()
     df = df.drop_duplicates()
+    #df.to_excel("solicitudes_credito_limpias.xlsx", index=False)
     #print(df)
     return df
 #clean_data()
