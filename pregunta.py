@@ -60,6 +60,8 @@ def clean_data():
         df[column] = df[column].apply(lambda x: [stemmer.stem(word) for word in x])
         # Remove duplicates, sort, and join
         df[column] = df[column].apply(lambda x: sorted(set(x))).str.join(' ')
+    df['barrio'] = df['barrio'].str.replace("beln", "belen")
+    df['barrio'] = df['barrio'].str.replace("antonio nario", "antonio nariño")
     df = df.dropna()
     df = df.drop_duplicates()
     #print(df)
@@ -68,6 +70,7 @@ def clean_data():
 #print(clean_data().sexo.value_counts().to_list())
 #print(clean_data().tipo_de_emprendimiento.value_counts())
 #print(clean_data().idea_negocio.value_counts())
+#pd.set_option('display.max_rows', None)
 #print(clean_data().barrio.value_counts().to_list())
 #print(clean_data().estrato.value_counts())
 #print(clean_data().línea_credito.value_counts().to_list())
