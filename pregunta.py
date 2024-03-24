@@ -73,4 +73,4 @@ def clean_data():
 #pd.set_option('display.max_rows', None)
 #print(clean_data().barrio.value_counts().to_list())
 #print(clean_data().estrato.value_counts())
-#print(clean_data().línea_credito.value_counts().to_list())
+
